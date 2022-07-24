@@ -37,11 +37,7 @@ executa.onclick = () => {
     const optionConta = document.getElementById("contas");
     let selecaoConta = optionConta.options[optionConta.selectedIndex].id;
     selecaoConta = parseInt(selecaoConta);
-    //const selecaoContaInt = parseInt(selecaoConta)
     const conta = contasClientes.find(conta => conta.id === selecaoConta)
-    console.log(selecaoConta)
-    console.log(conta)
-    console.log(selecaoOperacao)
     if(selecaoOperacao.toLowerCase() === "sacar") {
         console.log('chegou aqui')
         saca(conta, valor)
@@ -62,7 +58,6 @@ const saca = (conta, valor) => {
     } else {
         conta.saldo = conta.saldo - valor;
         mensagem.textContent = `Saque realizado. Saldo: ${conta.saldo}`
-        console.log(contasClientes)
     }
     
 }
@@ -74,7 +69,6 @@ const deposita = (conta, valor) => {
     } else {
         conta.saldo = conta.saldo + valor;
         mensagem.textContent = `Depósito realizado. Saldo: ${conta.saldo}`
-        console.log(contasClientes)
     }
 }
 
