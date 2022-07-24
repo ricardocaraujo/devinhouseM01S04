@@ -32,7 +32,8 @@ const executa = document.getElementById("executa");
 executa.onclick = () => {
     const optionOperacao = document.getElementById("operacao");
     const selecaoOperacao = optionOperacao.options[optionOperacao.selectedIndex].text;
-    const valor = document.getElementById("valor").value;
+    let valor = document.getElementById("valor").value;
+    valor = parseInt(valor);
     const optionConta = document.getElementById("contas");
     let selecaoConta = optionConta.options[optionConta.selectedIndex].id;
     selecaoConta = parseInt(selecaoConta);
@@ -44,7 +45,7 @@ executa.onclick = () => {
     if(selecaoOperacao.toLowerCase() === "sacar") {
         console.log('chegou aqui')
         saca(conta, valor)
-    } else if(selecaoOperacao === "depositar") {
+    } else if(selecaoOperacao.toLowerCase() === "depositar") {
         deposita (conta, valor)
     }
     
@@ -67,7 +68,14 @@ const saca = (conta, valor) => {
 }
 
 const deposita = (conta, valor) => {
-
+    if(valor <= 0) {
+        const mensagem = document.getElementById("mensagem");
+        mensagem.textContent = "Valor menor do que 0"
+    } else {
+        conta.saldo = conta.saldo + valor;
+        mensagem.textContent = `Depósito realizado. Saldo: ${conta.saldo}`
+        console.log(contasClientes)
+    }
 }
 
 
