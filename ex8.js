@@ -1,5 +1,10 @@
-const ano = prompt('Digite um ano')
+const verifica = document.getElementById("verifica")
+verifica.addEventListener('click', verificaNumero)
 
-const diferenca = ano - new Date().getFullYear();
+const mensagem = document.getElementById("mensagem");
 
-alert(`A diferença entre o ano digitao e o ano atual é ${diferenca}`)
+function verificaNumero () {
+    const numero = document.getElementById("numero").value;
+    const numeroInt = parseInt(numero)
+    mensagem.textContent = numeroInt % 2 === 0 ? "Número par" : "Número impar";
+}
