@@ -1,20 +1,16 @@
-let variavel = 0;
+const classifica = document.getElementById("classifica")
+classifica.addEventListener('click', classificaNumero)
 
-const decrementa = document.getElementById("decrementa");
-decrementa.addEventListener('click', decrementaValor);
+const mensagem = document.getElementById("mensagem");
 
-const incrementa = document.getElementById("incrementa");
-incrementa.addEventListener('click', incrementaValor);
-
-const valor = document.getElementById("valor");
-
-
-function decrementaValor() {
-    variavel--;
-    valor.textContent = variavel;
-}
-
-function incrementaValor() {
-    variavel++;
-    valor.textContent = variavel;
+function classificaNumero () {
+    const idade = document.getElementById("idade").value;
+    const idadeInt = parseInt(idade)
+    if(idadeInt <= 15) {
+        mensagem.textContent = "Jovem"
+    } else if(idadeInt > 15 && idadeInt <= 64) {
+        mensagem.textContent = "Adulto"
+    } else {
+        mensagem.textContent = "Idoso"
+    }
 }
